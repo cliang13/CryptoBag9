@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="tvSymbol" type="id" />
+    <item name="tvValueField" type="id" />
+    <item name="tvChange1hField" type="id" />
+    <item name="tvChange24hField" type="id" />
+    <item name="tvChange7dField" type="id" />
+    <item name="tvMarketcapField" type="id" />
+    <item name="tvVolumeField" type="id" />
+    <item name="ivSearch" type="id" />
+</resources>
