@@ -53,10 +53,12 @@ public class DetailFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         if (getArguments().containsKey(ARG_ITEM_ID)) {
             new GetCoinTask().execute();
 
-                       }
+          }
         }
 
     private class GetCoinTask extends AsyncTask<Void, Void, List<Coin>> {
@@ -90,36 +92,31 @@ public class DetailFragment extends Fragment {
             for(Coin coin : coins) {
                 if(coin.getId().equals(getArguments().getString(ARG_ITEM_ID))) {
                     mCoin = coin;
-                    //updateUi();
+                    updateUi();
                     DetailFragment.this.getActivity().setTitle(mCoin.getName());
                     break;
-
                 }
             }
-
         }
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_detail, container, false);
-updateUi(v);
-
-return v;
+        return v;
     }
 
-    private void updateUi(View v) {
-        mName = v.findViewById(R.id.tvName);
-        mSymbol = v.findViewById(R.id.tvSymbol);
-        mValue = v.findViewById(R.id.tvValueField);
-        mChange1h = v.findViewById(R.id.tvChange1hField);
-        mChange24h = v.findViewById(R.id.tvChange24hField);
-        mChange7d = v.findViewById(R.id.tvChange7dField);
-        mMarketcap = v.findViewById(R.id.tvMarketcapField);
-        mVolume = v.findViewById(R.id.tvVolumeField);
-        mSearch = v.findViewById(R.id.ivSearch);
+    private void updateUi() {
+        mName = getView().findViewById(R.id.tvName);
+        mSymbol = getView().findViewById(R.id.tvSymbol);
+        mValue = getView().findViewById(R.id.tvValueField);
+        mChange1h = getView().findViewById(R.id.tvChange1hField);
+        mChange24h = getView().findViewById(R.id.tvChange24hField);
+        mChange7d = getView().findViewById(R.id.tvChange7dField);
+        mMarketcap = getView().findViewById(R.id.tvMarketcapField);
+        mVolume = getView().findViewById(R.id.tvVolumeField);
+        mSearch = getView().findViewById(R.id.ivSearch);
 
 
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
